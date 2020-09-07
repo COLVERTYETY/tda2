@@ -1,0 +1,13 @@
+/home/agent/a2/info/tds/tda2/tds/td1/bin/Debug/netcoreapp3.1/td1
+/home/agent/a2/info/tds/tda2/tds/td1/bin/Debug/netcoreapp3.1/td1.deps.json
+/home/agent/a2/info/tds/tda2/tds/td1/bin/Debug/netcoreapp3.1/td1.runtimeconfig.json
+/home/agent/a2/info/tds/tda2/tds/td1/bin/Debug/netcoreapp3.1/td1.runtimeconfig.dev.json
+/home/agent/a2/info/tds/tda2/tds/td1/bin/Debug/netcoreapp3.1/td1.dll
+/home/agent/a2/info/tds/tda2/tds/td1/bin/Debug/netcoreapp3.1/td1.pdb
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.csprojAssemblyReference.cache
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.AssemblyInfoInputs.cache
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.AssemblyInfo.cs
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.csproj.CoreCompileInputs.cache
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.dll
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.pdb
+/home/agent/a2/info/tds/tda2/tds/td1/obj/Debug/netcoreapp3.1/td1.genruntimeconfig.cache
