@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/agent/a2/info/tds/tda2/tds/td1/prgincomplet.csproj",
+      "projectUniqueName": "/home/agent/a2/info/tds/tda2/tds/td2/prgincomplet.csproj",
       "projectName": "prgincomplet",
-      "projectPath": "/home/agent/a2/info/tds/tda2/tds/td1/prgincomplet.csproj",
+      "projectPath": "/home/agent/a2/info/tds/tda2/tds/td2/prgincomplet.csproj",
       "packagesPath": "/home/agent/.nuget/packages/",
-      "outputPath": "/home/agent/a2/info/tds/tda2/tds/td1/obj/",
+      "outputPath": "/home/agent/a2/info/tds/tda2/tds/td2/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
