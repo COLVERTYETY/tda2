@@ -5,6 +5,70 @@ namespace prgincomplet
 {
     class Program
     {
+        static int[] insertionsort(int[] tab){
+            int temp=0;
+            for(int _=0;_<tab.Length;_++){
+                for(int i=0;i<tab.Length-1;i++){
+                    if(tab[i]>tab[i+1]){
+                        temp = tab[i];
+                        tab[i]=tab[i+1];
+                        tab[i+1]=temp;
+                    }
+                }
+            }
+            // la complexité est 0(n)=n**2
+            // l espace memoire est constant
+            return tab;
+        }
+        static bool testcarremagic(int[,] mat){
+            bool res=true;
+            int sum=0;
+            int standard=0;
+            for(int i =0;i<mat.GetLength(0);i++){
+                standard+=mat[i,0];
+            }
+            for(int i =0;i<mat.GetLength(0);i++){//chaue ligne
+                sum=0;
+                for(int j=0;j<mat.GetLength(1);j++){
+                    sum+=mat[i,j];
+                }
+                if(sum!=standard){
+                    res = false;
+                }
+            }
+            for(int i =0;i<mat.GetLength(1);i++){//chaue colone
+                sum=0;
+                for(int j=0;j<mat.GetLength(0);j++){
+                    sum+=mat[j,i];
+                }
+                if(sum!=standard){
+                    res = false;
+                }
+            }
+            sum=0;
+            for(int i =0;i<mat.GetLength(1);i++){//diag1
+                for(int j=0;j<mat.GetLength(0);j++){
+                    if(i==j){
+                        sum+=mat[j,i];
+                    }                
+                }       
+            }
+            if(sum!=standard){
+                res = false;
+            }
+            sum=0;
+            for(int i =0;i<mat.GetLength(0);i++){
+                for(int j =0;j<mat.GetLength(1);j++){
+                    if((mat.GetLength(0)-i-1)==j){
+                        sum+=mat[i,j];
+                    }
+                }
+            }
+            if(sum!=standard){
+                res = false;
+            }
+            return res;
+        }
         static int[,] produitmatriciel(int[,] mata, int[,] matb){
 
             /// <summary>
@@ -41,6 +105,43 @@ namespace prgincomplet
             }
             return res;
         }
+        static int[] unravel(int[,] mat){
+            int[] res =new int[mat.GetLength(0)*mat.GetLength(1)];
+            for(int i=0;i<mat.GetLength(0);i++){
+                for(int j=0;j<mat.GetLength(1);j++){
+                    res[i*mat.GetLength(1)+j]=mat[i,j];
+                }
+            }
+            return res;
+        }
+        static int[,] ravel(int[] tab,int l0,int l1){
+            int[,] res = new int[l0,l1];
+            for(int i =0;i<tab.Length;i++){
+                res[(int)(i/l0),i%l0] = tab[i];
+            }
+            return res;
+        }
+        static void shift(int[] tab,int n=1){
+            for(int j=0;j<n;j++){
+                int tempshift=tab[tab.Length-1];
+                int tempswap = 0;
+                for(int i=0;i<tab.Length;i++){
+                    // temp = tab[(i+tab.Length+1)%tab.Length];
+                    // tab[(i+tab.Length+1)%tab.Length] = tab[i];
+                    // tab[i]=temp;
+                    tempswap = tab[i];
+                    tab[i]=tempshift;
+                    tempshift = tempswap;
+
+                }
+            }
+            
+        }
+        static int[,] nshift(int[,] mat,int n){
+            int[] temp = unravel(mat);
+            shift(temp,n);
+            return ravel(temp,mat.GetLength(0),mat.GetLength(1));
+        }
         static int[,] rndmat(int m,int n){
             Random rnd = new Random();
             int[,] mat = new int[m,n];
@@ -50,6 +151,24 @@ namespace prgincomplet
                 }
             }
             return mat;
+        }
+        static int[,] convolution(int[,] input,int[,] kernel){
+            int centerx = kernel.GetLength(0)/2;
+            int centery = kernel.GetLength(1)/2;
+            int sum=0;
+            int[,] output = new int[input.GetLength(0),input.GetLength(1)];
+            for(int x=0;x<output.GetLength(0);x++){
+                for(int y=0;y<output.GetLength(1);y++){
+                    sum=0;
+                    for(int i=0;i<kernel.GetLength(0);i++){
+                        for(int j=0;j<kernel.GetLength(1);j++){
+                            sum+=input[(x+i-centerx+input.GetLength(0))%input.GetLength(0),(y+j-centery+input.GetLength(1))%input.GetLength(1)]*kernel[i,j];
+                        }
+                    }
+                    output[x,y] = sum;
+                }
+            }
+            return output;
         }
         static bool isvalidmat(int[,] mat){
             bool res = false;
@@ -140,16 +259,28 @@ namespace prgincomplet
                                     multnewmat(memory);
                                     break;
                                 case 5:
-                                    //5
+                                    Console.WriteLine(string.Join(' ',insertionsort(new int[]{9,2,3,4,5})));
+                                    Console.ReadLine();
                                     break;
                                 case 6:
                                     //6
+                                    Console.WriteLine(testcarremagic(new int[,]{{8,1,6},{3,5,7},{4,9,2}}));
+                                    Console.WriteLine(testcarremagic(new int[,]{{2,1,6},{3,5,7},{4,9,2}}));
+                                    Console.ReadLine();
                                     break;
                                 case 7:
                                     //7
+                                    int[,] test = new int[,]{{1,2,3},{4,5,6},{7,8,9}};
+                                    test=nshift(test,3);
+                                    prettydisp(test);
+                                    Console.ReadLine();
                                     break;
                                 case 8:
                                     //8
+                                    int[,] image = new int[,]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
+                                    int[,] kernel = new int[,]{{1,1,1},{1,1,1},{1,1,1}};
+                                    prettydisp(convolution(image,kernel));
+                                    Console.ReadLine();
                                     break;
                                 case 9:
                                     //9

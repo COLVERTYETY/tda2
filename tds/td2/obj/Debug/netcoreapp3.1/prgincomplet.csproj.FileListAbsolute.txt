@@ -50,3 +50,16 @@
 /home/agent/a2/info/tds/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.dll
 /home/agent/a2/info/tds/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.pdb
 /home/agent/a2/info/tds/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.genruntimeconfig.cache
+/home/orca/a2/info/tda2/tds/td2/bin/Debug/netcoreapp3.1/prgincomplet
+/home/orca/a2/info/tda2/tds/td2/bin/Debug/netcoreapp3.1/prgincomplet.deps.json
+/home/orca/a2/info/tda2/tds/td2/bin/Debug/netcoreapp3.1/prgincomplet.runtimeconfig.json
+/home/orca/a2/info/tda2/tds/td2/bin/Debug/netcoreapp3.1/prgincomplet.runtimeconfig.dev.json
+/home/orca/a2/info/tda2/tds/td2/bin/Debug/netcoreapp3.1/prgincomplet.dll
+/home/orca/a2/info/tda2/tds/td2/bin/Debug/netcoreapp3.1/prgincomplet.pdb
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.csprojAssemblyReference.cache
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.AssemblyInfoInputs.cache
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.AssemblyInfo.cs
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.csproj.CoreCompileInputs.cache
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.dll
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.pdb
+/home/orca/a2/info/tda2/tds/td2/obj/Debug/netcoreapp3.1/prgincomplet.genruntimeconfig.cache

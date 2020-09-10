@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/orca/a2/info/tda2/tds/td2/prgincomplet.csproj",
-      "projectName": "prgincomplet",
-      "projectPath": "/home/orca/a2/info/tda2/tds/td2/prgincomplet.csproj",
+      "projectUniqueName": "/home/orca/a2/info/tda2/tds/extra/extra.csproj",
+      "projectName": "extra",
+      "projectPath": "/home/orca/a2/info/tda2/tds/extra/extra.csproj",
       "packagesPath": "/home/orca/.nuget/packages/",
-      "outputPath": "/home/orca/a2/info/tda2/tds/td2/obj/",
+      "outputPath": "/home/orca/a2/info/tda2/tds/extra/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/orca/.nuget/NuGet/NuGet.Config"
