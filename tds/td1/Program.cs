@@ -1,5 +1,5 @@
 ﻿using System;
-
+//nicolas stas
 namespace prgincomplet
 {
     class Program

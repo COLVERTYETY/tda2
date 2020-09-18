@@ -7,14 +7,17 @@ namespace prgincomplet
     {
         static int[] insertionsort(int[] tab){
             int temp=0;
-            for(int _=0;_<tab.Length;_++){
-                for(int i=0;i<tab.Length-1;i++){
-                    if(tab[i]>tab[i+1]){
-                        temp = tab[i];
-                        tab[i]=tab[i+1];
-                        tab[i+1]=temp;
+            for (int i = 0; i < tab.Length - 1; i++)
+            {
+                for (int j = i + 1; j > 0; j--)
+                {
+                    if (tab[j - 1] > tab[j])
+                    {
+                        temp = tab[j - 1];
+                        tab[j - 1] = tab[j];
+                        tab[j] = temp;
                     }
-                }
+                  }
             }
             // la complexité est 0(n)=n**2
             // l espace memoire est constant
@@ -27,7 +30,7 @@ namespace prgincomplet
             for(int i =0;i<mat.GetLength(0);i++){
                 standard+=mat[i,0];
             }
-            for(int i =0;i<mat.GetLength(0);i++){//chaue ligne
+            for(int i =0;i<mat.GetLength(0);i++){//chaque ligne
                 sum=0;
                 for(int j=0;j<mat.GetLength(1);j++){
                     sum+=mat[i,j];
@@ -36,7 +39,7 @@ namespace prgincomplet
                     res = false;
                 }
             }
-            for(int i =0;i<mat.GetLength(1);i++){//chaue colone
+            for(int i =0;i<mat.GetLength(1);i++){//chaque colone
                 sum=0;
                 for(int j=0;j<mat.GetLength(0);j++){
                     sum+=mat[j,i];
@@ -84,21 +87,12 @@ namespace prgincomplet
             if(isvalidmat(mata) && isvalidmat(matb)){//neither null nor empty
                 if(mata.GetLength(1)==matb.GetLength(0)){ // are the mats compatible for the operation?
                     res = new int[mata.GetLength(0),matb.GetLength(1)];
-                    int temp;
                     for(int i =0;i<res.GetLength(0);i++){// iterate throu each cell of the output matrix
                         for(int j=0;j<res.GetLength(1);j++){
-                            temp = 0;
-                            for(int x=0;x<mata.GetLength(0);x++){//calculate value by reading input matrixes
-                                for(int y=0;y<matb.GetLength(1);y++){
-                                    Console.WriteLine("___");
-                                    Console.WriteLine(x);
-                                    Console.WriteLine(y);
-                                    Console.WriteLine(i);
-                                    Console.WriteLine(j);
-                                    temp+=mata[x,i]*matb[j,y];   //! here things might be mixed up
-                                }
+                            res[i,j]=0;
+                            for(int x=0;x<mata.GetLength(1);x++){//calculate value by reading input matrixes
+                                res[i,j]+=mata[i,x]*matb[x,j];   //! here things might be mixed up
                             }
-                            res[i,j]=temp;
                         }
                     }
                 }
@@ -117,7 +111,7 @@ namespace prgincomplet
         static int[,] ravel(int[] tab,int l0,int l1){
             int[,] res = new int[l0,l1];
             for(int i =0;i<tab.Length;i++){
-                res[(int)(i/l0),i%l0] = tab[i];
+                res[i%l0,(int)(i/l0)] = tab[i];
             }
             return res;
         }
@@ -126,9 +120,6 @@ namespace prgincomplet
                 int tempshift=tab[tab.Length-1];
                 int tempswap = 0;
                 for(int i=0;i<tab.Length;i++){
-                    // temp = tab[(i+tab.Length+1)%tab.Length];
-                    // tab[(i+tab.Length+1)%tab.Length] = tab[i];
-                    // tab[i]=temp;
                     tempswap = tab[i];
                     tab[i]=tempshift;
                     tempshift = tempswap;
@@ -200,27 +191,47 @@ namespace prgincomplet
         {
             ConsoleKeyInfo cki;
             List<memomatrice> memory = new List<memomatrice>();
-            memory.Add(new memomatrice("h",new int[,] {{1,1,1}}));
-            memory.Add(new memomatrice("v",new int[,] {{1},{2},{3}}));
+            memory.Add(new memomatrice("horizontal",new int[,] {{1,1,1}}));
+            memory.Add(new memomatrice("v3rtical",new int[,] {{1},{2},{3}}));
+            memory.Add(new memomatrice("3p3",new int[,] {{1,2,3},{5,6,7},{8,9,10}}));
+            memory.Add(new memomatrice("magic",new int[,] {{8,1,6},{3,5,7},{4,9,2}}));
+            memory.Add(new memomatrice("image",new int[,] {
+            {1,1,1,1,1,1,1,1,3,1,1,1,1,0,1,1,1,2,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,3,1,1,1,0,1,1,2,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,3,1,1,0,1,2,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,3,1,0,2,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,3,0,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,1,2,0,1,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,1,2,1,0,3,1,1,1,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,1,1,1,2,1,1,0,1,3,1,1,1,1,1,1,1,1,1,1},
+            {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+            {1,1,1,1,1,1,1,1,2,1,1,1,1,0,1,1,1,3,1,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,1,2,1,1,1,1,1,0,1,1,1,1,3,1,1,1,1,1,1,1},
+            {1,1,1,1,1,1,2,1,1,1,1,1,1,0,1,1,1,1,1,3,1,1,1,1,1,1},
+            {1,1,1,1,1,2,1,1,1,1,1,1,1,0,1,1,1,1,1,1,3,1,1,1,1,1},
+            {1,1,1,1,2,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,3,1,1,1,1},
+            {1,1,1,2,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,3,1,1,1},
+            {1,1,2,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,3,1,1},
+            {1,2,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,3,1},
+            {2,1,1,1,1,1,1,1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,1,1,1,3},
+            }));
+            memory.Add(new memomatrice("noyau",new int[,] {{-1,0,-1},{-1,0,-1},{-1,0,-1}}));
             // Console.WindowHeight = 50;
             // Console.WindowWidth = 100;
             const int exomin=1;
             const int exomax=10;
             int cursor = exomin-1;
-            do
-            {
+            do{
                 Console.Clear();
                 Console.WriteLine("Menu :\n"
                                  + "-exercice 1 : creer matrice\n"
                                  + "-exercice 2 : creer matrice aleatoire\n"
                                  + "-exercice 3 : visualiser les matrices\n"
                                  + "-exercice 4 : creer produit matriciel\n"
-                                 + "-exercice 5 : table de multiplication\n"
-                                 + "-exercice 6 : inverser une chaine\n"
-                                 + "-exercice 7 : rechercher une chaine\n"
-                                 + "-exercice 8 : matrice de mon choix\n"
-                                 + "-exercice 9 : matrice random\n"
-                                 + "-exercice 10 : addition de matrice\n"
+                                 + "-exercice 5 : insertion sort d'un tableau prédefini\n"
+                                 + "-exercice 6 : verifier carre magic\n"
+                                 + "-exercice 7 : décaler une matrice\n"
+                                 + "-exercice 8 : appliquer une convolution\n"
                                  + "\n"
                                  + "Sélectionnez l'exercice désiré ");
                 
@@ -259,36 +270,53 @@ namespace prgincomplet
                                     multnewmat(memory);
                                     break;
                                 case 5:
+                                    //5
+                                    Console.Clear();
                                     Console.WriteLine(string.Join(' ',insertionsort(new int[]{9,2,3,4,5})));
                                     Console.ReadLine();
                                     break;
                                 case 6:
                                     //6
-                                    Console.WriteLine(testcarremagic(new int[,]{{8,1,6},{3,5,7},{4,9,2}}));
-                                    Console.WriteLine(testcarremagic(new int[,]{{2,1,6},{3,5,7},{4,9,2}}));
+                                    Console.Clear();
+                                    Console.WriteLine("test pour carré magic:");
+                                    Console.WriteLine("sélection de la matrice a tester:");
+                                    Console.ReadLine();
+                                    Console.WriteLine( testcarremagic(getmatfrom(memory)));
                                     Console.ReadLine();
                                     break;
                                 case 7:
                                     //7
-                                    int[,] test = new int[,]{{1,2,3},{4,5,6},{7,8,9}};
-                                    test=nshift(test,3);
+                                    Console.WriteLine("décalage de matrice");
+                                    Console.ReadLine();
+                                    int[,] test = getmatfrom(memory);
+                                    Console.Clear();
+                                    Console.WriteLine("veuillez rentrer le nombre décalage a effectuer");
+                                    int iter = getint();
+                                    test=nshift(test,iter);
+                                    Console.WriteLine("veuillez rentrer le nom de la matrice pour savegarder");
+                                    string namee = Console.ReadLine();
+                                    memory.Add(new memomatrice(namee,test));
                                     prettydisp(test);
                                     Console.ReadLine();
                                     break;
                                 case 8:
                                     //8
-                                    int[,] image = new int[,]{{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16}};
-                                    int[,] kernel = new int[,]{{1,1,1},{1,1,1},{1,1,1}};
-                                    prettydisp(convolution(image,kernel));
+                                    Console.Clear();
+                                    Console.WriteLine("convolution");
+                                    Console.WriteLine("veuillez choisir l'image");
                                     Console.ReadLine();
+                                    int[,] image = getmatfrom(memory);
+                                    Console.Clear();
+                                    Console.WriteLine("veuillez choisir le noyau");
+                                    Console.ReadLine();
+                                    int[,] kernel = getmatfrom(memory);
+                                    int [,] rres = convolution(image,kernel);
+                                    prettydisp(rres);
+                                    Console.ReadLine();
+                                    Console.WriteLine("veuillez rentrer le nom de la matrice pour savegarder");
+                                    string name = Console.ReadLine();
+                                    memory.Add(new memomatrice(name,rres));
                                     break;
-                                case 9:
-                                    //9
-                                    break;
-                                case 10:
-                                    //10
-                                    break;
-
                                 default:
                                     break;
                             }
