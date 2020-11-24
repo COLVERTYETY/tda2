@@ -1,0 +1,13 @@
+/home/orca/a2/info/tda2/tds/td6/bin/Debug/netcoreapp3.1/td6
+/home/orca/a2/info/tda2/tds/td6/bin/Debug/netcoreapp3.1/td6.deps.json
+/home/orca/a2/info/tda2/tds/td6/bin/Debug/netcoreapp3.1/td6.runtimeconfig.json
+/home/orca/a2/info/tda2/tds/td6/bin/Debug/netcoreapp3.1/td6.runtimeconfig.dev.json
+/home/orca/a2/info/tda2/tds/td6/bin/Debug/netcoreapp3.1/td6.dll
+/home/orca/a2/info/tda2/tds/td6/bin/Debug/netcoreapp3.1/td6.pdb
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.csprojAssemblyReference.cache
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.AssemblyInfoInputs.cache
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.AssemblyInfo.cs
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.csproj.CoreCompileInputs.cache
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.dll
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.pdb
+/home/orca/a2/info/tda2/tds/td6/obj/Debug/netcoreapp3.1/td6.genruntimeconfig.cache
